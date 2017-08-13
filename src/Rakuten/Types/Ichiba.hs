@@ -112,12 +112,12 @@ type ChiledItemGenre =
     "genreLevel" ':> Int
   ]
 
-type ItemTagGroupWrap = Record '[ "TagGroup" ':> ItemTagGroup ]
+type ItemTagGroupWrap = Record '[ "tagGroup" ':> ItemTagGroup ]
 
 type ItemTagGroup =
   Record '[
     "tagGroupName" ':> Text,
-    "tagGroupId" ':> Text,
+    "tagGroupId" ':> Int,
     "tags" ':> [ItemTagWrap]
   ]
 
@@ -127,7 +127,7 @@ type ItemTag =
   Record '[
     "tagId" ':> Int,
     "tagName" ':> Text,
-    "parentTagId" ':> Text,
+    "parentTagId" ':> Int,
     "itemCount" ':> Int
   ]
 
