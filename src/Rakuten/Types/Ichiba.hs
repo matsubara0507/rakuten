@@ -4,17 +4,21 @@
 {-# LANGUAGE TypeOperators     #-}
 
 module Rakuten.Types.Ichiba
-    ( IchibaItems
+    ( -- Response JSON Type
+      IchibaItems
     , ItemWrap
     , Item
+      -- Genre JSON Type
+    , ParentGenre'
     , GenreInformation
-    , ParentGenre
-    , CurrentGenre
-    , ChiledGenre
-    , TagGroupWrap
-    , TagGroup
-    , TagWrap
-    , Tag
+    , CurrentItemGenre
+    , ChiledItemGenre
+      -- Tag JSON Type
+    , ItemTag
+    , ItemTagWrap
+    , ItemTagGroup
+    , ItemTagGroupWrap
+      -- Request Params Type
     , IchibaItemSearchParam
     ) where
 
@@ -34,7 +38,7 @@ type IchibaItems =
     "pageCount" ':> Int,
     "Items" ':> [ItemWrap],
     "GenreInformation" ':> [GenreInformation],
-    "TagInformation" ':> [TagGroupWrap]
+    "TagInformation" ':> [ItemTagGroupWrap]
   ]
 
 type ItemWrap = Record '[ "Item" ':> Item ]
@@ -80,27 +84,19 @@ type Item =
 
 type GenreInformation =
   Record '[
-    "parent" ':> [ParentGenre],
-    "current" ':> [CurrentGenre],
-    "chiled" ':> [ChiledGenre]
+    "parent" ':> [ParentGenre'],
+    "current" ':> [CurrentItemGenre],
+    "chiled" ':> [ChiledItemGenre]
   ]
 
-type ParentGenre =
+type ParentGenre' =
   Record '[
     "genreId" ':> Text,
     "genreName" ':> Text,
     "genreLevel" ':> Int
   ]
 
-type CurrentGenre =
-  Record '[
-    "genreId" ':> Text,
-    "genreName" ':> Text,
-    "itemCount" ':> Int,
-    "genreLevel" ':> Int
-  ]
-
-type ChiledGenre =
+type CurrentItemGenre =
   Record '[
     "genreId" ':> Text,
     "genreName" ':> Text,
@@ -108,18 +104,26 @@ type ChiledGenre =
     "genreLevel" ':> Int
   ]
 
-type TagGroupWrap = Record '[ "TagGroup" ':> TagGroup ]
+type ChiledItemGenre =
+  Record '[
+    "genreId" ':> Text,
+    "genreName" ':> Text,
+    "itemCount" ':> Int,
+    "genreLevel" ':> Int
+  ]
 
-type TagGroup =
+type ItemTagGroupWrap = Record '[ "TagGroup" ':> ItemTagGroup ]
+
+type ItemTagGroup =
   Record '[
     "tagGroupName" ':> Text,
     "tagGroupId" ':> Text,
-    "tags" ':> [TagWrap]
+    "tags" ':> [ItemTagWrap]
   ]
 
-type TagWrap = Record '[ "tag" ':> Tag ]
+type ItemTagWrap = Record '[ "tag" ':> ItemTag ]
 
-type Tag =
+type ItemTag =
   Record '[
     "tagId" ':> Int,
     "tagName" ':> Text,
