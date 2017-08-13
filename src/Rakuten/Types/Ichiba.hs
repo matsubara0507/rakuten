@@ -8,18 +8,28 @@ module Rakuten.Types.Ichiba
       IchibaItems
     , ItemWrap
     , Item
+    , IchibaGenres
       -- Genre JSON Type
+    , Genre
     , ParentGenre'
+    , ParentGenreWrap
+    , BrotherGenreWrap
+    , ChiledGenreWrap
     , GenreInformation
     , CurrentItemGenre
     , ChiledItemGenre
       -- Tag JSON Type
+    -- , Tag
+    , TagWrap
+    , TagGroup
+    , TagGroupWrap
     , ItemTag
     , ItemTagWrap
     , ItemTagGroup
     , ItemTagGroupWrap
       -- Request Params Type
     , IchibaItemSearchParam
+    , IchibaGenreSearchParam
     ) where
 
 import           Data.Extensible
@@ -131,6 +141,46 @@ type ItemTag =
     "itemCount" ':> Int
   ]
 
+type IchibaGenres =
+  Record '[
+    "parents" ':> [ParentGenreWrap],
+    "current" ':> Genre,
+    "brothers" ':> [BrotherGenreWrap],
+    "children" ':> [ChiledGenreWrap],
+    "tagGroups" ':> [TagGroupWrap]
+  ]
+
+type Genre =
+  Record '[
+    "genreId" ':> Int,
+    "genreName" ':> Text,
+    "genreLevel" ':> Int
+  ]
+
+type ParentGenreWrap = Record '[ "parent" ':> Genre ]
+
+type BrotherGenreWrap = Record '[ "brother" ':> Genre ]
+
+type ChiledGenreWrap = Record '[ "child" ':> Genre ]
+
+type TagGroupWrap = Record '[ "tagGroup" ':> TagGroup ]
+
+type TagGroup =
+  Record '[
+    "tagGroupName" ':> Text,
+    "tagGroupId" ':> Int,
+    "tags" ':> [TagWrap]
+  ]
+
+type TagWrap = Record '[ "tag" ':> Tag ]
+
+type Tag =
+  Record '[
+    "tagId" ':> Int,
+    "tagName" ':> Text,
+    "parentTagId" ':> Int
+  ]
+
 type IchibaItemSearchParam =
   Record '[
     "keyword" ':> Text,
@@ -167,4 +217,10 @@ type IchibaItemSearchParam =
     "appointDeliveryDateFlag" ':> Maybe Bool,
     "genreInformationFlag" ':> Maybe Bool,
     "tagInformationFlag" ':> Maybe Bool
+  ]
+
+type IchibaGenreSearchParam =
+  Record '[
+    "genreId" ':> Int,
+    "genrePath" ':> Maybe Bool
   ]
