@@ -40,3 +40,14 @@ library:
     - Rakuten.Types.Class
     - Rakuten.Types.Error
     - Rakuten.Types.Ichiba
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs:
+      - test
+      - src
+    dependencies:
+      - servant-server >=0.9.1.1 && <0.12
+      - warp >=3.2.11 && <3.3
+      - hspec >=2.4.1 && <2.5
