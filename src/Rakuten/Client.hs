@@ -20,8 +20,8 @@ import           Data.Default.Class (Default (def))
 import           Data.Extensible
 import           Data.Function      ((&))
 import           Data.Text          (Text)
-import           Network.HTTP.Req   (QueryParam, Scheme (Https), Url, https,
-                                     (/:), (=:))
+import           Network.HTTP.Req   (Option, Scheme (Https), Url, https, (/:),
+                                     (=:))
 import           Rakuten.Types
 
 type AppId = Text
@@ -42,9 +42,9 @@ defaultRaktenClient appId = def & #applicationId .~ appId
 class Client a where
   type ClientScheme a :: Scheme
   baseUrl :: a -> Url (ClientScheme a)
-  baseParam :: (QueryParam param, Monoid param) => a -> param
+  mkHeader :: a -> Option scheme
 
 instance Client RakutenClient where
   type ClientScheme RakutenClient = 'Https
   baseUrl = const (https "app.rakuten.co.jp" /: "services" /: "api")
-  baseParam =  mappend ("format" =: ("json" :: Text)) . toParams
+  mkHeader = mappend ("format" =: ("json" :: Text)) . toParams

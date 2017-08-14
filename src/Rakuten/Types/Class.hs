@@ -35,6 +35,12 @@ instance Forall (KeyValue KnownSymbol FromJSON) xs => FromJSON (Record xs) where
         Just a -> Field . return <$> parseJSON a
         Nothing -> fail $ "Missing key: " `mappend` k
 
+instance Forall (KeyValue KnownSymbol ToJSON) xs => ToJSON (Record xs) where
+  toJSON = Object . HM.fromList . flip appEndo [] . hfoldMap getConst' . hzipWith
+    (\(Comp Dict) -> Const' . Endo . (:) .
+      liftA2 (,) (fromString . symbolVal . proxyAssocKey) (toJSON . getField))
+    (library :: Comp Dict (KeyValue KnownSymbol ToJSON) :* xs)
+
 instance Default a => Default (Identity a) where
   def = Identity def
 
