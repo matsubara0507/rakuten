@@ -33,6 +33,7 @@ library
       Rakuten.Types
       Rakuten.Types.Base
       Rakuten.Types.Class
+      Rakuten.Types.Error
       Rakuten.Types.Ichiba
   other-modules:
       Paths_rakuten
