@@ -24,6 +24,8 @@ import           Network.HTTP.Req   (Option, Scheme (Https), Url, https, (/:),
                                      (=:))
 import           Rakuten.Types
 
+-- |
+-- Application ID
 type AppId = Text
 
 type RakutenClient =

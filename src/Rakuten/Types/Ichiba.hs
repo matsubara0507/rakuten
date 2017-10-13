@@ -19,7 +19,6 @@ module Rakuten.Types.Ichiba
     , CurrentItemGenre
     , ChiledItemGenre
       -- Tag JSON Type
-    -- , Tag
     , TagWrap
     , TagGroup
     , TagGroupWrap

@@ -1,3 +1,6 @@
+-- |
+-- This module is re-export all endpoint functions and types from this package.
+--
 module Rakuten (
     -- * Define about Rakuten Client
       module Rakuten.Client

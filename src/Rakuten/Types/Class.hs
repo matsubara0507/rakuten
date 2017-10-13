@@ -51,6 +51,9 @@ instance Forall (KeyValue KnownSymbol Default) xs => Default (Record xs) where
   def = runIdentity $ hgenerateFor
     (Proxy :: Proxy (KeyValue KnownSymbol Default)) (const $ pure (Field def))
 
+-- |
+-- Helper Type Class of 'QueryParam'
+
 class ToParam a where
   toParam :: (QueryParam param, Monoid param) => Text -> a -> param
 
@@ -76,6 +79,10 @@ instance ToParam a => ToParam (Maybe a) where
 
 instance ToParam a => ToParam (Identity a) where
   toParam name = toParam name . runIdentity
+
+-- |
+-- Helper Type Class of 'QueryParam'
+-- use to construct request parameter from param type, e.g. 'IchibaItemSearchParam'
 
 class ToParams a where
   toParams :: (QueryParam param, Monoid param) => a -> param
