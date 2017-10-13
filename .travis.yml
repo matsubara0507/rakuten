@@ -15,14 +15,14 @@ matrix:
     compiler: ": #stack default"
     addons: {apt: {packages: [libgmp-dev]}}
 
-  - env: BUILD=stack ARGS="--resolver lts-8"
-    compiler: ": #stack 8.0.2"
-    addons: {apt: {packages: [libgmp-dev]}}
-
-  # # Nightly builds are allowed to fail
-  # - env: BUILD=stack ARGS="--resolver nightly"
-  #   compiler: ": #stack nightly"
+  # - env: BUILD=stack ARGS="--resolver lts-8"
+  #   compiler: ": #stack 8.0.2"
   #   addons: {apt: {packages: [libgmp-dev]}}
+  #
+  # Nightly builds are allowed to fail
+  - env: BUILD=stack ARGS="--resolver nightly"
+    compiler: ": #stack nightly"
+    addons: {apt: {packages: [libgmp-dev]}}
 
   # Build on macOS in addition to Linux
   - env: BUILD=stack ARGS=""
@@ -33,14 +33,14 @@ matrix:
   #- env: BUILD=stack ARGS="--resolver lts-2"
   #  compiler: ": #stack 7.8.4 osx"
   #  os: osx
-
-  - env: BUILD=stack ARGS="--resolver lts-8"
-    compiler: ": #stack 8.0.2 osx"
-    os: osx
-
-  # - env: BUILD=stack ARGS="--resolver nightly"
-  #   compiler: ": #stack nightly osx"
+  #
+  # - env: BUILD=stack ARGS="--resolver lts-8"
+  #   compiler: ": #stack 8.0.2 osx"
   #   os: osx
+
+  - env: BUILD=stack ARGS="--resolver nightly"
+    compiler: ": #stack nightly osx"
+    os: osx
 
   # allow_failures:
   # - env: BUILD=stack ARGS="--resolver nightly"
