@@ -1,4 +1,7 @@
 # rakuten
+
+[![Build Status](https://travis-ci.org/matsubara0507/rakuten.svg?branch=master)](https://travis-ci.org/matsubara0507/rakuten)
+
 The Rakuten API for Haskell
 
 ## example
