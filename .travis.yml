@@ -25,9 +25,9 @@ matrix:
     addons: {apt: {packages: [libgmp-dev]}}
 
   # Build on macOS in addition to Linux
-  - env: BUILD=stack ARGS=""
-    compiler: ": #stack default osx"
-    os: osx
+  # - env: BUILD=stack ARGS=""
+  #   compiler: ": #stack default osx"
+  #   os: osx
 
   # Travis includes an macOS which is incompatible with GHC 7.8.4
   #- env: BUILD=stack ARGS="--resolver lts-2"
@@ -38,9 +38,9 @@ matrix:
   #   compiler: ": #stack 8.0.2 osx"
   #   os: osx
 
-  - env: BUILD=stack ARGS="--resolver nightly"
-    compiler: ": #stack nightly osx"
-    os: osx
+  # - env: BUILD=stack ARGS="--resolver nightly"
+  #   compiler: ": #stack nightly osx"
+  #   os: osx
 
   # allow_failures:
   # - env: BUILD=stack ARGS="--resolver nightly"
