@@ -1,5 +1,5 @@
 name: rakuten
-version: 0.1.0.1
+version: 0.1.0.2
 synopsis: The Rakuten API in Haskell
 description: See README at <https://github.com/matsubara0507/rakuten#readme>
 maintainer: MATSUBARA Nobutada
@@ -48,6 +48,6 @@ tests:
       - test
       - src
     dependencies:
-      - servant-server >=0.9.1.1 && <0.12
+      - servant-server >=0.9.1.1 && <0.13
       - warp >=3.2.11 && <3.3
       - hspec >=2.4.1 && <2.5
