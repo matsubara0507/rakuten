@@ -1,11 +1,10 @@
-{-# LANGUAGE DataKinds            #-}
-{-# LANGUAGE FlexibleContexts     #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE PolyKinds            #-}
-{-# LANGUAGE ScopedTypeVariables  #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE UndecidableInstances #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE ScopedTypeVariables   #-}
+{-# LANGUAGE TypeOperators         #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Rakuten.Types.Class
     ( ToParam(..)
@@ -32,7 +31,7 @@ instance Forall (KeyValue KnownSymbol FromJSON) xs => FromJSON (Record xs) where
     \v -> hgenerateFor (Proxy :: Proxy (KeyValue KnownSymbol FromJSON)) $
     \m -> let k = symbolVal (proxyAssocKey m) in
       case HM.lookup (fromString k) v of
-        Just a -> Field . return <$> parseJSON a
+        Just a  -> Field . return <$> parseJSON a
         Nothing -> fail $ "Missing key: " `mappend` k
 
 instance Forall (KeyValue KnownSymbol ToJSON) xs => ToJSON (Record xs) where
@@ -64,14 +63,14 @@ instance ToParam Double where
   toParam = (=:)
 
 instance ToParam Text where
-  toParam _ "" = mempty
+  toParam _ ""     = mempty
   toParam name txt = name =: txt
 
 instance ToParam Bool where
   toParam name = (=:) name . bool 0 (1 :: Int)
 
 instance ToParam [Text] where
-  toParam _ [] = mempty
+  toParam _ []    = mempty
   toParam name xs = name =: foldl1 (\acc s -> acc <> "," <> s) (fmap show xs)
 
 instance ToParam a => ToParam (Maybe a) where

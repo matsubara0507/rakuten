@@ -1,9 +1,12 @@
-resolver: nightly-2017-10-12
+resolver: nightly-2017-11-10
 
 packages:
 - .
 
-extra-deps: []
+extra-deps:
+- servant-0.12
+- servant-server-0.12
+- req-1.0.0
 
 flags: {}
 

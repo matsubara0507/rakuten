@@ -8,6 +8,6 @@ module Rakuten.Types.Base
     ) where
 
 import           Data.Extensible
-import           Data.Text             (Text)
+import           Data.Text       (Text)
 
 type ImageUrl = Record '[ "imageUrl"  ':>  Text ]
