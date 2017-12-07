@@ -1,5 +1,5 @@
 name: rakuten
-version: 0.1.0.3
+version: 0.1.0.4
 synopsis: The Rakuten API in Haskell
 description: See README at <https://github.com/matsubara0507/rakuten#readme>
 maintainer: MATSUBARA Nobutada
