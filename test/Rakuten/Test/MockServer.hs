@@ -10,11 +10,11 @@ module Rakuten.Test.MockServer
     , runMockServer
     ) where
 
-import           Rakuten.Test.Class
-import           Rakuten.Types
 import           Control.Concurrent
 import           Control.Exception
 import           Network.Wai.Handler.Warp
+import           Rakuten.Test.Class
+import           Rakuten.Types
 import           Servant
 
 type RakutenHeader a = a
