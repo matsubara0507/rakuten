@@ -3,9 +3,9 @@ resolver: nightly-2018-01-21
 packages:
 - .
 
-extra-deps:
-- http-types-0.11
-- constraints-0.10
+extra-deps: []
+# - http-types-0.11
+# - constraints-0.10
 
 flags: {}
 
