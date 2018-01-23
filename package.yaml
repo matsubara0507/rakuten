@@ -4,7 +4,7 @@ synopsis: The Rakuten API in Haskell
 description: See README at <https://github.com/matsubara0507/rakuten#readme>
 maintainer: MATSUBARA Nobutada
 author: MATSUBARA Nobutada
-copyright: 2017 MATSUBARA Nobutada
+copyright: 2017-2018 MATSUBARA Nobutada
 license: MIT
 github: matsubara0507/rakuten
 category: Web

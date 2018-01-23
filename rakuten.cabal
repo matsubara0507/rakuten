@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: cf76f00e0b1d2acf7790241f222df1a8f41f2224bec3a01dacf6f39021b70965
+-- hash: ec9bf50bef20da14e70977ce1cf85d3bd1fd7520181acba51f8731d0c8ed7c34
 
 name:           rakuten
 version:        0.1.0.5
@@ -13,7 +13,7 @@ homepage:       https://github.com/matsubara0507/rakuten#readme
 bug-reports:    https://github.com/matsubara0507/rakuten/issues
 author:         MATSUBARA Nobutada
 maintainer:     MATSUBARA Nobutada
-copyright:      2017 MATSUBARA Nobutada
+copyright:      2017-2018 MATSUBARA Nobutada
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
