@@ -1,12 +1,11 @@
-resolver: nightly-2017-11-10
+resolver: nightly-2018-01-21
 
 packages:
 - .
 
-extra-deps:
-- servant-0.12
-- servant-server-0.12
-- req-1.0.0
+extra-deps: []
+# - http-types-0.11
+# - constraints-0.10
 
 flags: {}
 
