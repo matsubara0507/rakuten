@@ -1,7 +1,6 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE DataKinds        #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE TypeOperators    #-}
 
 module Rakuten.Types.Base
     ( ImageUrl
@@ -10,4 +9,4 @@ module Rakuten.Types.Base
 import           Data.Extensible
 import           Data.Text       (Text)
 
-type ImageUrl = Record '[ "imageUrl"  ':>  Text ]
+type ImageUrl = Record '[ "imageUrl" ':>  Text ]
