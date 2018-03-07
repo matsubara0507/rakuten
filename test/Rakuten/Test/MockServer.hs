@@ -11,7 +11,6 @@ module Rakuten.Test.MockServer
     ) where
 
 import           Control.Concurrent
-import           Control.Exception
 import           Network.Wai.Handler.Warp
 import           Rakuten.Test.Class
 import           Rakuten.Types
@@ -37,5 +36,5 @@ mockServer = run 8000 (serve api server)
 
 runMockServer :: IO () -> IO ()
 runMockServer action = do
-  tid <- forkIO mockServer
-  action `finally` killThread tid
+  _ <- forkIO mockServer
+  action

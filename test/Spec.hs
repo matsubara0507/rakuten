@@ -1,1 +1,13 @@
-{-# OPTIONS_GHC -F -pgmF hspec-discover #-}
+module Main where
+
+import           Test.Hspec
+
+import qualified Rakuten.Endpoints.IchibaSpec
+import           Rakuten.Test.MockServer      (runMockServer)
+
+main :: IO ()
+main = hspec spec
+
+spec :: Spec
+spec = around_ runMockServer $ do
+  describe "Rakuten.Endpoints.Ichiba" Rakuten.Endpoints.IchibaSpec.spec
