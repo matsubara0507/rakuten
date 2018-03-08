@@ -2,6 +2,12 @@
 
 ## Unreleased changes
 
+### 0.1.1.0
+
+- Fix: conflict `aeson` instances
+    - remove instances in this package
+- Relax PVP for `http-types-0.4.8`
+
 ### 0.1.0.6
 
 - Fix: test on windows, not work `finally`

@@ -3,8 +3,8 @@ resolver: nightly-2018-03-06
 packages:
 - .
 
-extra-deps: []
-# - extensile-0.4.7.2
+extra-deps: # []
+- extensible-0.4.8
 # - servant-0.13
 # - servant-server-0.13
 # - http-types-0.12

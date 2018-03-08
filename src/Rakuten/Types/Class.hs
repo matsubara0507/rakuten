@@ -12,33 +12,17 @@ module Rakuten.Types.Class
     ) where
 
 import           Control.Applicative   (liftA2)
-import           Data.Aeson            hiding (KeyValue)
 import           Data.Bool             (bool)
 import           Data.Constraint
 import           Data.Default.Class    (Default (..))
 import           Data.Extensible
 import           Data.Functor.Identity (Identity (..))
-import qualified Data.HashMap.Strict   as HM
 import           Data.Monoid           (Endo (..), (<>))
 import           Data.Proxy
 import           Data.String           (fromString)
 import           Data.Text             (Text)
 import           GHC.TypeLits          (KnownSymbol, symbolVal)
 import           Network.HTTP.Req      (QueryParam, (=:))
-
-instance Forall (KeyValue KnownSymbol FromJSON) xs => FromJSON (Record xs) where
-  parseJSON = withObject "Object" $
-    \v -> hgenerateFor (Proxy :: Proxy (KeyValue KnownSymbol FromJSON)) $
-    \m -> let k = symbolVal (proxyAssocKey m) in
-      case HM.lookup (fromString k) v of
-        Just a  -> Field . return <$> parseJSON a
-        Nothing -> fail $ "Missing key: " `mappend` k
-
-instance Forall (KeyValue KnownSymbol ToJSON) xs => ToJSON (Record xs) where
-  toJSON = Object . HM.fromList . flip appEndo [] . hfoldMap getConst' . hzipWith
-    (\(Comp Dict) -> Const' . Endo . (:) .
-      liftA2 (,) (fromString . symbolVal . proxyAssocKey) (toJSON . getField))
-    (library :: Comp Dict (KeyValue KnownSymbol ToJSON) :* xs)
 
 instance Default a => Default (Identity a) where
   def = Identity def
