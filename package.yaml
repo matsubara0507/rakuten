@@ -18,7 +18,7 @@ dependencies:
   - connection >=0.2.7 && <0.3
   - constraints >=0.9.1 && <0.11
   - data-default-class >=0.1.2.0 && <0.2
-  - extensible >=0.4.7.2 && <0.4.8
+  - extensible >=0.4.7.2 && <0.4.9
   - http-api-data >=0.3.5 && <0.3.8
   - http-client >=0.5.5.0 && <0.6
   - http-client-tls >=0.3.3.1 && <0.4
