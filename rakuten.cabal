@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e3de96cacd87e9e021879e0fd3c8c7c1e80fbca129bf4acb670ea3965e6af689
+-- hash: 1eebe68d72343d06d49005f2fc2ab80e151fce80350cecaa8233b77affd50a96
 
 name:           rakuten
 version:        0.1.1.1
@@ -28,7 +28,7 @@ library
       src
   ghc-options: -Wall
   build-depends:
-      aeson >=1.0.2.1 && <1.3
+      aeson >=1.0.2.1 && <1.4
     , base >=4.7 && <5
     , bytestring >=0.10.8.1 && <0.11
     , connection >=0.2.7 && <0.3
@@ -64,7 +64,7 @@ test-suite spec
       src
   ghc-options: -Wall
   build-depends:
-      aeson >=1.0.2.1 && <1.3
+      aeson >=1.0.2.1 && <1.4
     , base >=4.7 && <5
     , bytestring >=0.10.8.1 && <0.11
     , connection >=0.2.7 && <0.3
