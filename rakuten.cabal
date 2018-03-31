@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 556528d064276649ad99805bc4b9cbd3476bd530ad8b1b0ced4efaca208bb0cd
+-- hash: e3de96cacd87e9e021879e0fd3c8c7c1e80fbca129bf4acb670ea3965e6af689
 
 name:           rakuten
-version:        0.1.1.0
+version:        0.1.1.1
 synopsis:       The Rakuten API in Haskell
 description:    See README at <https://github.com/matsubara0507/rakuten#readme>
 category:       Web
@@ -35,7 +35,7 @@ library
     , constraints >=0.9.1 && <0.11
     , data-default-class >=0.1.2.0 && <0.2
     , extensible >=0.4.7.2 && <0.4.9
-    , http-api-data >=0.3.5 && <0.3.8
+    , http-api-data >=0.3.5 && <0.3.9
     , http-client >=0.5.5.0 && <0.6
     , http-client-tls >=0.3.3.1 && <0.4
     , http-types >=0.9.1 && <0.13
@@ -71,8 +71,8 @@ test-suite spec
     , constraints >=0.9.1 && <0.11
     , data-default-class >=0.1.2.0 && <0.2
     , extensible >=0.4.7.2 && <0.4.9
-    , hspec >=2.4.1 && <2.5
-    , http-api-data >=0.3.5 && <0.3.8
+    , hspec >=2.4.1 && <2.6
+    , http-api-data >=0.3.5 && <0.3.9
     , http-client >=0.5.5.0 && <0.6
     , http-client-tls >=0.3.3.1 && <0.4
     , http-types >=0.9.1 && <0.13
