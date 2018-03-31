@@ -2,6 +2,12 @@
 
 ## Unreleased changes
 
+### 0.1.1.1
+
+- Relax PVP for `http-api-data-0.3.8`
+- Relax PVP for `hspec-2.5`
+- Relax PVP for `aeson-1.3`
+
 ### 0.1.1.0
 
 - Fix: conflict `aeson` instances
