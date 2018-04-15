@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 556528d064276649ad99805bc4b9cbd3476bd530ad8b1b0ced4efaca208bb0cd
+-- hash: 1eebe68d72343d06d49005f2fc2ab80e151fce80350cecaa8233b77affd50a96
 
 name:           rakuten
-version:        0.1.1.0
+version:        0.1.1.1
 synopsis:       The Rakuten API in Haskell
 description:    See README at <https://github.com/matsubara0507/rakuten#readme>
 category:       Web
@@ -28,14 +28,14 @@ library
       src
   ghc-options: -Wall
   build-depends:
-      aeson >=1.0.2.1 && <1.3
+      aeson >=1.0.2.1 && <1.4
     , base >=4.7 && <5
     , bytestring >=0.10.8.1 && <0.11
     , connection >=0.2.7 && <0.3
     , constraints >=0.9.1 && <0.11
     , data-default-class >=0.1.2.0 && <0.2
     , extensible >=0.4.7.2 && <0.4.9
-    , http-api-data >=0.3.5 && <0.3.8
+    , http-api-data >=0.3.5 && <0.3.9
     , http-client >=0.5.5.0 && <0.6
     , http-client-tls >=0.3.3.1 && <0.4
     , http-types >=0.9.1 && <0.13
@@ -64,15 +64,15 @@ test-suite spec
       src
   ghc-options: -Wall
   build-depends:
-      aeson >=1.0.2.1 && <1.3
+      aeson >=1.0.2.1 && <1.4
     , base >=4.7 && <5
     , bytestring >=0.10.8.1 && <0.11
     , connection >=0.2.7 && <0.3
     , constraints >=0.9.1 && <0.11
     , data-default-class >=0.1.2.0 && <0.2
     , extensible >=0.4.7.2 && <0.4.9
-    , hspec >=2.4.1 && <2.5
-    , http-api-data >=0.3.5 && <0.3.8
+    , hspec >=2.4.1 && <2.6
+    , http-api-data >=0.3.5 && <0.3.9
     , http-client >=0.5.5.0 && <0.6
     , http-client-tls >=0.3.3.1 && <0.4
     , http-types >=0.9.1 && <0.13
