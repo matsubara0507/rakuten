@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3750181d1f3f69d9fb2197bde08e365a6063e9c85bd2d115e91c7d985ad5a8dc
+-- hash: 7b16ada2700c7bf12480486d74442a8e5f044b80e268540524d07cc87b672644
 
 name:           rakuten
-version:        0.1.1.1
+version:        0.1.1.2
 synopsis:       The Rakuten API in Haskell
 description:    See README at <https://github.com/matsubara0507/rakuten#readme>
 category:       Web
