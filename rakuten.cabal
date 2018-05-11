@@ -1,11 +1,11 @@
--- This file has been generated from package.yaml by hpack version 0.20.0.
+-- This file has been generated from package.yaml by hpack version 0.28.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1eebe68d72343d06d49005f2fc2ab80e151fce80350cecaa8233b77affd50a96
+-- hash: 7b16ada2700c7bf12480486d74442a8e5f044b80e268540524d07cc87b672644
 
 name:           rakuten
-version:        0.1.1.1
+version:        0.1.1.2
 synopsis:       The Rakuten API in Haskell
 description:    See README at <https://github.com/matsubara0507/rakuten#readme>
 category:       Web
@@ -40,7 +40,7 @@ library
     , http-client-tls >=0.3.3.1 && <0.4
     , http-types >=0.9.1 && <0.13
     , lens >=4.15.3 && <5.0
-    , req >=0.3.0 && <1.1.0
+    , req >=0.3.0 && <1.2.0
     , text >=1.2.2.1 && <1.3
   exposed-modules:
       Rakuten
@@ -77,7 +77,7 @@ test-suite spec
     , http-client-tls >=0.3.3.1 && <0.4
     , http-types >=0.9.1 && <0.13
     , lens >=4.15.3 && <5.0
-    , req >=0.3.0 && <1.1.0
+    , req >=0.3.0 && <1.2.0
     , servant-server >=0.9.1.1 && <0.14
     , text >=1.2.2.1 && <1.3
     , warp >=3.2.11 && <3.3
