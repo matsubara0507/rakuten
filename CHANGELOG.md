@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+- Relax PVP for `extensible-0.4.9`
+
 ### 0.1.1.2
 - Relax PVP for `req-1.1`
 
