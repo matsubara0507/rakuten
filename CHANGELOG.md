@@ -2,6 +2,12 @@
 
 ## Unreleased changes
 
+### 0.1.1.4
+
+- Relax PVP for `aeson-1.4`
+- Relax PVP for `extensible-0.4.10`
+- Relax PVP for `servant-server-1.4`
+
 ### 0.1.1.3
 - Relax PVP for `extensible-0.4.9`
 
