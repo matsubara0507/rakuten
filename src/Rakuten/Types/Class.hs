@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP                   #-}
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
@@ -18,7 +19,9 @@ import           Data.Default.Class    (Default (..))
 import           Data.Extensible
 import           Data.Functor.Identity (Identity (..))
 import           Data.Monoid           (Endo (..), (<>))
+#if !MIN_VERSION_extensible(0,4,10)
 import           Data.Proxy
+#endif
 import           Data.String           (fromString)
 import           Data.Text             (Text)
 import           GHC.TypeLits          (KnownSymbol, symbolVal)
