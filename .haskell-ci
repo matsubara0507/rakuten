@@ -1,4 +1,4 @@
-hlint: False
+hlint: True
 installed: +all -parsec -text
 doctest: False
 local-ghc-options: -Werror

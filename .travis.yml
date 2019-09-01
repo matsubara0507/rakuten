@@ -88,6 +88,7 @@ install:
   - cat $CABALHOME/config
   - rm -fv cabal.project cabal.project.local cabal.project.freeze
   - travis_retry ${CABAL} v2-update -v
+  - if [ $HCNUMVER -ge 80600 ] ; then (cd /tmp && ${CABAL} v2-install $WITHCOMPILER -j2 hlint --constraint='hlint ==2.1.*' | color_cabal_output) ; fi
   # Generate cabal.project
   - rm -rf cabal.project cabal.project.local cabal.project.freeze
   - touch cabal.project
@@ -134,6 +135,8 @@ script:
   - ${CABAL} v2-build $WITHCOMPILER ${TEST} ${BENCH} all | color_cabal_output
   # Testing...
   - ${CABAL} v2-test $WITHCOMPILER ${TEST} ${BENCH} all | color_cabal_output
+  # HLint..
+  - if [ $HCNUMVER -ge 80600 ] ; then (cd ${PKGDIR_rakuten} && hlint src) ; fi
   # cabal check...
   - (cd ${PKGDIR_rakuten} && ${CABAL} -vnormal check)
   # haddock...
