@@ -3,16 +3,10 @@ resolver: lts-14.4
 packages:
 - .
 
-extra-deps: []
-# - aeson-1.4.0.0
-# - http-api-data-0.3.8.1
-# - extensible-0.4.10
-# - servant-0.14.1
-# - servant-server-0.14.1
-# - http-types-0.12
-# - constraints-0.10
-# - req-1.2.1
-
-flags: {}
-
-extra-package-dbs: []
+extra-deps:
+- constraints-0.11.1
+- extensible-0.6.1
+- http2-2.0.3
+- membership-0
+- text-1.2.4.0
+- warp-3.3.0
