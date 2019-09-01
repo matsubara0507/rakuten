@@ -1,7 +1,7 @@
 cabal-version: 2.4
 name:          rakuten
 version:       0.1.1.5
-tested-with:   GHC ==8.2.2 || ==8.4.4 || ==8.6.5 || ==8.8.1
+tested-with:   GHC ==8.4.4 || ==8.6.5
 synopsis:      The Rakuten API in Haskell
 description:
   See README at <https://github.com/matsubara0507/rakuten#readme>
@@ -27,7 +27,7 @@ common deps
     -Wredundant-constraints -Wtabs
 
   build-depends:
-    , base                ^>=4.12
+    , base                >=4.11  && <4.13
     , data-default-class  ^>=0.1.2
     , extensible          ^>=0.6.1
     , req                 ^>=2.1.0
@@ -51,7 +51,7 @@ library
     Rakuten.Types.Class
     Rakuten.Types.Error
     Rakuten.Types.Ichiba
-    
+
   default-language: Haskell2010
 
 test-suite spec

@@ -2,4 +2,3 @@ hlint: False
 installed: +all -parsec -text
 doctest: False
 local-ghc-options: -Werror
-osx: 8.2.2 8.4.4 8.6.5
