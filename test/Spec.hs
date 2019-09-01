@@ -9,5 +9,5 @@ main :: IO ()
 main = hspec spec
 
 spec :: Spec
-spec = around_ runMockServer $ do
+spec = around_ runMockServer $
   describe "Rakuten.Endpoints.Ichiba" Rakuten.Endpoints.IchibaSpec.spec

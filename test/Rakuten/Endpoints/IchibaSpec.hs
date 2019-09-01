@@ -12,13 +12,13 @@ import           Test.Hspec               (Spec, context, describe, it,
 
 spec :: Spec
 spec = do
-  describe "searchIchibaItem: endpoint GET /IchibaItem/Search/20170706" $ do
-    context "correct responce" $ do
+  describe "searchIchibaItem: endpoint GET /IchibaItem/Search/20170706" $
+    context "correct responce" $
       it "should return IchibaItems response body" $ do
         response <- runReq defaultHttpConfig $ searchIchibaItem (TestClient def) def
-        (responseBody response) `shouldBe` testData
-  describe "searchIchibaGenre: endpoint GET /IchibaGenre/Search/20140222" $ do
-    context "correct responce" $ do
+        responseBody response `shouldBe` testData
+  describe "searchIchibaGenre: endpoint GET /IchibaGenre/Search/20140222" $
+    context "correct responce" $
       it "should return IchibaGenres response body" $ do
         response <- runReq defaultHttpConfig $ searchIchibaGenre (TestClient def) def
-        (responseBody response) `shouldBe` testData
+        responseBody response `shouldBe` testData
