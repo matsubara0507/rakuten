@@ -12,16 +12,13 @@ module Rakuten.Types.Class
     , ToParams(..)
     ) where
 
-import           Control.Applicative   (liftA2)
+import           Control.Applicative
 import           Data.Bool             (bool)
 import           Data.Constraint
 import           Data.Default.Class    (Default (..))
 import           Data.Extensible
 import           Data.Functor.Identity (Identity (..))
 import           Data.Monoid           (Endo (..), (<>))
-#if !MIN_VERSION_extensible(0,4,10)
-import           Data.Proxy
-#endif
 import           Data.String           (fromString)
 import           Data.Text             (Text)
 import           GHC.TypeLits          (KnownSymbol, symbolVal)
@@ -33,9 +30,9 @@ instance Default a => Default (Identity a) where
 instance Default Text where
   def = mempty
 
-instance Forall (KeyValue KnownSymbol Default) xs => Default (Record xs) where
+instance Forall (KeyTargetAre KnownSymbol Default) xs => Default (Record xs) where
   def = runIdentity $ hgenerateFor
-    (Proxy :: Proxy (KeyValue KnownSymbol Default)) (const $ pure (Field def))
+    (Proxy :: Proxy (KeyTargetAre KnownSymbol Default)) (const $ pure (Field def))
 
 -- |
 -- Helper Type Class of 'QueryParam'
@@ -73,8 +70,8 @@ instance ToParam a => ToParam (Identity a) where
 class ToParams a where
   toParams :: (QueryParam param, Monoid param) => a -> param
 
-instance Forall (KeyValue KnownSymbol ToParam) xs => ToParams (Record xs) where
-  toParams = flip appEndo mempty . hfoldMap getConst' . hzipWith
-    (\(Comp Dict) -> Const' . Endo . (<>) .
-      liftA2 toParam (fromString . symbolVal . proxyAssocKey) getField)
-    (library :: Comp Dict (KeyValue KnownSymbol ToParam) :* xs)
+instance Forall (KeyTargetAre KnownSymbol ToParam) xs => ToParams (Record xs) where
+  toParams = flip appEndo mempty . hfoldMap getConst . hzipWith
+    (\(Comp Dict) -> Const . Endo . (<>) .
+      liftA2 toParam (fromString . symbolVal . proxyKeyOf) getField)
+    (library :: xs :& Comp Dict (KeyTargetAre KnownSymbol ToParam))

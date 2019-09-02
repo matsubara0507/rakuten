@@ -3,7 +3,6 @@
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE TypeSynonymInstances  #-}
 
 module Rakuten.Test.Class
     ( TestData(..)
@@ -11,9 +10,6 @@ module Rakuten.Test.Class
 
 import           Data.Extensible
 import           Data.Functor.Identity (Identity (..))
-#if !MIN_VERSION_extensible(0,4,10)
-import           Data.Proxy
-#endif
 import           Data.Text             (Text)
 import           GHC.TypeLits          (KnownSymbol)
 
@@ -35,6 +31,6 @@ instance TestData Bool where
 instance (Applicative m, TestData a) => TestData (m a) where
   testData = pure testData
 
-instance Forall (KeyValue KnownSymbol TestData) xs => TestData (Record xs) where
+instance Forall (KeyTargetAre KnownSymbol TestData) xs => TestData (Record xs) where
   testData = runIdentity $ hgenerateFor
-    (Proxy :: Proxy (KeyValue KnownSymbol TestData)) (const $ pure (Field testData))
+    (Proxy :: Proxy (KeyTargetAre KnownSymbol TestData)) (const $ pure (Field testData))
